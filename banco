@@ -1,0 +1,25 @@
+CREATE DATABASE crud_dupla_quel_murilo;
+
+USE crud_dupla_quel_murilo;
+
+CREATE TABLE professores(
+	id_professor INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL
+
+);
+CREATE TABLE aulas(
+	id_aula INT PRIMARY KEY AUTO_INCREMENT,
+    sala VARCHAR(100) NOT NULL,
+    materia VARCHAR(100) NOT NULL,
+    data_aula DATE NOT NULL
+    
+);
+CREATE TABLE diario (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    hora_aula VARCHAR(100) NOT NULL,
+	id_aulas INT,
+    FOREIGN KEY (id_aulas) REFERENCES aulas(id_aula),
+    id_professores INT,
+    FOREIGN KEY (id_professores) REFERENCES professor(id_professor)
+);
